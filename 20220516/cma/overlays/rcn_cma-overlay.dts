@@ -1,0 +1,28 @@
+/dts-v1/;
+/plugin/;
+
+/{
+	compatible = "brcm,bcm2835";
+
+	fragment@0 {
+		target-path = "/reserved-memory/";
+		__overlay__ {
+			rcn_cma_reserved: raccoon,cma-reserved@0 {
+				compatible = "shared-dma-pool";
+				size = <0x400000>;
+				reusable;
+			};
+		};
+	};
+
+	fragment@1 {
+		target-path = "/soc/";
+		__overlay__ {
+			rcn_cma: raccoon,cma {
+				compatible = "raccoon,cma";
+				status = "okay";
+				memory-region = <&rcn_cma_reserved>;
+			};
+		};
+	};
+};

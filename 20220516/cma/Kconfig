@@ -1,0 +1,5 @@
+config RACCOON_CMA
+	tristate "Raccoon's CMA Training"
+	default m
+	help
+	  Raccoon's CMA Training
