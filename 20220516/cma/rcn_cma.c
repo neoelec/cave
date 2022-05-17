@@ -55,10 +55,11 @@ static int __cma_alloc_1_page(struct builder *bd)
 	dma_addr_t phys;
 
 	virt = dmam_alloc_coherent(dev, PAGE_SIZE, &phys, GFP_KERNEL);
-	dev_info(dev, "%p (%zx)\n", virt, (size_t)phys);
 
 	drvdata->virt = virt;
 	drvdata->phys = phys;
+
+	dev_info(dev, "%px %pad\n", drvdata->virt, &drvdata->phys);
 
 	return 0;
 }
@@ -101,8 +102,8 @@ static int __cma_remove(struct platform_device *pdev,
 
 static const struct dev_builder __cma_dev_builder[] = {
 	DEVICE_BUILDER(__cma_parse_dt, NULL),
-	DEVICE_BUILDER(__cma_probe_epilog, NULL),
 	DEVICE_BUILDER(__cma_alloc_1_page, NULL),
+	DEVICE_BUILDER(__cma_probe_epilog, NULL),
 };
 
 static int rcn_cma_probe(struct platform_device *pdev)
