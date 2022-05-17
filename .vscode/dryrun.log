@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/neoelec/iHDD00/08.PROJECT/cave'
+make: Leaving directory '/home/neoelec/iHDD00/08.PROJECT/cave'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

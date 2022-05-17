@@ -1,0 +1,16 @@
+/dts-v1/;
+/plugin/;
+
+/{
+	compatible = "brcm,bcm2835";
+
+	fragment@0 {
+		target-path = "/soc/";
+		__overlay__ {
+			rcn_slub: raccoon,slub {
+				compatible = "raccoon,slub";
+				status = "okay";
+			};
+		};
+	};
+};

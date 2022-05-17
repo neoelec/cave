@@ -1,0 +1,5 @@
+config RACCOON_SLUB
+	tristate "Raccoon's SLUB Training"
+	default m
+	help
+	  Raccoon's SLUB Training
