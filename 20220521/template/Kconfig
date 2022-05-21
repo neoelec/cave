@@ -1,0 +1,5 @@
+config RACCOON_TEMPLATE
+	tristate "Raccoon's TEMPLATE"
+	default m
+	help
+	  Raccoon's TEMPLATE
